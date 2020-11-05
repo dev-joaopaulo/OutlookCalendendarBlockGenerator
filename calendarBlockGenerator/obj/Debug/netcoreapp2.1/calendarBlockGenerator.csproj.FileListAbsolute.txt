@@ -1,0 +1,11 @@
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\bin\Debug\netcoreapp2.1\calendarBlockGenerator.deps.json
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\bin\Debug\netcoreapp2.1\calendarBlockGenerator.runtimeconfig.json
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\bin\Debug\netcoreapp2.1\calendarBlockGenerator.runtimeconfig.dev.json
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\bin\Debug\netcoreapp2.1\calendarBlockGenerator.dll
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\bin\Debug\netcoreapp2.1\calendarBlockGenerator.pdb
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.csprojAssemblyReference.cache
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.csproj.CoreCompileInputs.cache
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.AssemblyInfoInputs.cache
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.AssemblyInfo.cs
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.dll
+C:\Users\Studio28 FTView9\Desktop\calendarBlockGenerator\calendarBlockGenerator\obj\Debug\netcoreapp2.1\calendarBlockGenerator.pdb
