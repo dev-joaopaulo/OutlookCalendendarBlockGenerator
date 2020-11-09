@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace calendarBlockGenerator
 {
@@ -33,16 +35,20 @@ namespace calendarBlockGenerator
 
             // Program:
             List<string> daysList = CalendarDateList(WorkdaysList(initialDate, lastDate));
+
             int numberOfDays = daysList.Count;
 
             Console.WriteLine($"There are {numberOfDays} days to be blocked");
 
+            List<List<int>> dayBlockersList = GenerateDayBlockersList(numberOfDays, blockHours, availableWorkHours);
+
+            string calendarEvents = CreateCalendarEvents(daysList, dayBlockersList);
+
+            File.WriteAllText(@"..\..\..\Output\Events.ics", calendarEvents);
+            
             // Test Stuff Here
-            List<int> DayBlock = DayBlocker(blockHours, availableWorkHours);
-            foreach (int testElement in DayBlock)
-            {
-                Console.WriteLine(testElement);
-            }
+
+            Console.WriteLine(calendarEvents);
 
             // End:
             Console.ReadLine();
@@ -115,6 +121,58 @@ namespace calendarBlockGenerator
             blockedTimeList.Sort();
 
             return blockedTimeList;
+        }
+
+        static List<List<int>> GenerateDayBlockersList (int numberOfDays, int blockHours, List<int> availableWorkHours)
+        {
+            List<List<int>> dayBlockersList = new List<List<int>>();
+
+            List<int> dayBlock;
+
+            for (int i = 0; i < numberOfDays; i++)
+            {
+                dayBlock = DayBlocker(blockHours, availableWorkHours);
+                dayBlockersList.Add(dayBlock);
+            }
+
+            return dayBlockersList;
+        }
+
+        static string EventGenerator (string calendarDate, int eventTime)
+        {
+            string calendarEvent = "BEGIN:VEVENT\n" +
+                                   $"DTSTART: {calendarDate}T{eventTime}0000\n" +
+                                   $"DTEND: {calendarDate}T{eventTime + 1}0000\n" +
+                                   "LOCATION:Teams\n" +
+                                   "SUMMARY:Block Time\n" +
+                                   "END:VEVENT\n\n";
+                       
+            return calendarEvent;
+        }
+
+        static string CreateCalendarEvents (List<string> daysList, List<List<int>> dayBlockersList)
+        {
+            string compiledEvents = "BEGIN:VCALENDAR\n\n" +
+                                    "CALSCALE:GREGORIAN\n" +
+                                    "METHOD:PUBLISH\n" +
+                                    "X-WR-TIMEZONE:America/Sao_Paulo\n\n";
+
+            int dayIndex = 0;
+
+            foreach (string calendarDay in daysList)
+            {
+                List<int> blockedHours = dayBlockersList[dayIndex];
+
+                foreach(int hour in blockedHours)
+                {
+                    compiledEvents += EventGenerator(calendarDay, hour);
+                }
+                dayIndex++;
+            }
+
+            compiledEvents += "END:VCALENDAR";
+
+            return compiledEvents;
         }
 
     }
